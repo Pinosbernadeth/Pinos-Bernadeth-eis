@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ei-edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bulma/bulma.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'Bulma/bulma.css') }}">
+  <link rel="stylesheet" href="static/css/employee.css">
+
+</head>
+
+<body>
+  <div class="box1 has-background-primary has-text-black  is-size-2 has-text-centered ">
+    Employee Information System</div>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Error Message</title>
+      <style>
+        body {
+          font-family: 'Courier New', Courier, monospace;
+          background-color: antiquewhite;
+          padding: 10px;
+        }
+        .container {
+          display: relative;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          text-align: center;
+        }
+        .has-bg-danger {
+          background-color: black;
+          color: aliceblue;
+          padding: 0px;
+          border-radius: 5px;
+          margin-bottom: 5px;
+          width: fit-content;
+          margin: 0 auto;
+        }
+        .btn {
+          background-color: rgb(38, 223, 207);
+          color: black;
+          padding: 0px 0px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          align-self: flex-start;
+          margin-bottom: 10px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        {% if message != "" %}
+        <div class="has-bg-danger messagebox">{{ message }}</div>
+        {% endif %}
+        <a href="/add-form" class="btn">Add Employee</a>
+      </div>
+    </body>
+    </html>
+  <center>
+    <div class="box2">
+
+      <div class=" box2 grid has-background-primary-dark">
+        <table class="table is-bordered has-background-primary-light ">
+          <tbody>
+
+            <tr>
+              <th class="is-secure has-background-black has-text-white  has-text-justified ">Employee ID</th>
+              <td class="is-secure has-background-black has-text-white  has-text-justified ">Last Name</td>
+              <td class="is-secure has-background-black has-text-white  has-text-justified">First Name</td>
+              <td class="is-secure has-background-black has-text-white has-text-justified ">Middle Name</td>
+              <td class="is-secure has-background-black has-text-white  has-text-justified ">Action</td>
+            </tr>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee[0] }}</td>
+                <td>{{ employee[1] }}</td>
+                <td>{{ employee[2] }}</td>
+                <td>{{ employee[3] }}</td>
+                <td class="has-text-centered">
+                    <form action="{{ url_for('delete_employee', emp_id=employee[0]) }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="emp_id" value="{{ employee[0] }}">
+                        <button type="submit" class="delete_button is-warning is-small">Delete</button>
+                    </form>
+                    <a href="{{ url_for('update_employee', emp_id=employee[0]) }}" class="update_button is-warning is-small">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+          
+  </center>
+
+  <body>
+   <div class="container has-background-black has-text-white is-size-3 has-text-centered ">
+              Employee List</div>
+</body>
+
+  <div class="fixed ">
+    <div class="box has-background-black has-text-white  has-text-centered ">Employee List</div>
+    <div class="box has-background-black has-text-white  has-text-centered ">Personal Info</div>
+    <div class="box has-background-black has-text-white  has-text-centered ">Education Info</div>
+    <div class="box has-background-black has-text-white has-text-centered ">Work Exp</div>
+    <div class="box has-background-black has-text-white  has-text-centered ">Trainings</div>
+    <div class="box has-background-black has-text-white has-text-centered ">Logout</div>
+  </div>
+  
+
+
+
+
+
+
+  </div>
+  </div>
+</tbody>
+</table>
+
+
+</body>
+
+</html>

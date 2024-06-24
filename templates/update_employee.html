@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'Bulma/bulma.css')}}">
+    <title>Flask App</title>
+    <link rel="stylesheet" href="bulma/bulma.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .box {
+        width: 500px;
+      }
+    </style>
+
+</head>
+<body>
+    <center>
+        <div class="box  has-text-weight-bold is-family-primary is-size-2 has-background-primary has-text-dark has-text-centered">UPDATE EMPLOYEE</div>
+    <div class="box has-text-centered is-size-1 has-background-black">
+        <form  action="{{ url_for('update_employee', emp_id=employee[0]) }}" method="POST"class="has-background-primary ">
+          <input type="hidden" name="emp_id" value="{{ employee[0] }}">
+
+            <div class="field">
+              <label class="label has-text-dark">EMPLOYEE ID</label>
+              <div class="control">
+                <input class="input" name="emp_id_display" type="text" placeholder="emloyee id" value="{{ employee[0] }}" readonly/>
+              </div>
+            </div>
+          
+            <div class="field">
+              <label class="label has-text-dark">LAST NAME </label>
+              <div class="control">
+                <input class="input" name="lname" type="text" placeholder="last name" value="{{ employee[1] }}"/>
+              </div>
+            </div>
+
+            <div class="field">
+                <label class="label has-text-dark">FIRST NAME </label>
+                <div class="control">
+                  <input class="input" name="fname" type="text" placeholder="first name" value="{{ employee[2] }}" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label has-text-dark">MIDDLE NAME </label>
+                <div class="control">
+                  <input class="input" name="mname" type="text" placeholder="middle name"  value="{{ employee[3] }}"/>
+                </div>
+              </div>
+          
+            <button type="submit" class="button has-text-weight-bold is-family-primary has-background-link-light ">UPDATE</button>
+          </form>
+    </div>
+    </center>
+    
+</body>
+</html>

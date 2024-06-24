@@ -1,0 +1,22 @@
+.box2{
+  width: 100%;
+}  
+.box{
+    position: relative;
+    width: 200px;
+    top: 60px;
+    right: 550px;
+
+}
+.table{
+    position: relative;
+    height:500px;
+    width: 800px;
+    bottom: 450px;
+}
+.container{
+    position: relative;
+    height: 70px;
+    width: 60%;
+    top: 10px;
+}
